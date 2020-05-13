@@ -9,7 +9,7 @@
 - Nandha Himawan 05111740000180
 - Rama Romadhan 05111740007009
 
-![marvin-meyer](img/intro.jpg)
+![marvin-meyer](img/intro.png)
 
 Sesuai dengan judul aplikasi (POST - driven) maka fitur utama dari aplikasi ini
 adalah posting. Fitur lain yang kami buat
