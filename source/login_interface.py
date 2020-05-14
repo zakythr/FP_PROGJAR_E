@@ -8,10 +8,10 @@ import config
 def runapp():
     def login():
         try:
-            sender = account.get()
+            akun = account.get()
             pswrd = password.get()
             mail = imaplib.IMAP4_SSL ("imap.gmail.com")
-            mail.login(sender, pswrd)
+            mail.login(akun, pswrd)
             
             ttk.Label(mainframe, text="Login Succesfull").grid(column=4,row=9,sticky=W)
             subject = "Login Berhasil"
@@ -42,7 +42,7 @@ def runapp():
 
     root = Tk()
     root.title("POST - driven app")
-    root.iconbitmap(r'source\lib\app.ico')
+    root.iconbitmap(r'lib\app.ico')
 
     mainframe = ttk.Frame(root, padding="3 3 12 12")
     mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
