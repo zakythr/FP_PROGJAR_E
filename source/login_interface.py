@@ -13,13 +13,13 @@ def runapp():
             mail = imaplib.IMAP4_SSL ("imap.gmail.com")
             mail.login(akun, pswrd)
             
-            ttk.Label(mainframe, text="Login Succesfull").grid(column=4,row=9,sticky=W)
+            ttk.Label(mainframe, text="Login Succesfull").grid(row=9,sticky=N, columnspan=5)
             subject = "Login Berhasil"
             msg = "Selamat , anda berhasil login aplikasi POST-driven app, selamat menikmati"
             send_mail(subject,msg)
             
         except Exception as e:
-            ttk.Label(mainframe, text="Login gagal, silahkan cek email dan password").grid(column=4,row=9,sticky=W)
+            ttk.Label(mainframe, text="Login gagal, silahkan cek email dan password").grid(columnspan=5,row=9,sticky=N)
 
             
     def setup(event):
@@ -52,24 +52,24 @@ def runapp():
     account = StringVar()
     password = StringVar()
 
-    a = Label(mainframe, text="Less secure app access dinyalakan dahulu", fg="blue", cursor="hand2")
-    a.grid(columnspan=2,column=3, row=0, sticky=N)
-    a.bind("<Button-1>", setup)
+    link = Label(mainframe, text="Less secure app access dinyalakan dahulu", fg="blue", cursor="hand2")
+    link.grid(columnspan=2,column=1, row=0, sticky=N)
+    link.bind("<Button-1>", setup)
 
 
     ttk.Label(mainframe, text="Email: ").grid(column=0, row=1, sticky=W)
-    account_entry = ttk.Entry(mainframe, width=30, textvariable=account)
-    account_entry.grid(column=4, row=1, sticky=(W, E))
+    account_text = ttk.Entry(mainframe, width=40, textvariable=account)
+    account_text.grid(column=2, row=1, sticky=(W, E))
 
     ttk.Label(mainframe, text="Password: ").grid(column=0, row=2, sticky=W)
-    password_entry = ttk.Entry(mainframe, show="*", width=30, textvariable=password)
-    password_entry.grid(column=4, row=2, sticky=(W, E))
+    password_text = ttk.Entry(mainframe, show="*", width=40, textvariable=password)
+    password_text.grid(column=2, row=2, sticky=(W, E))
 
-    ttk.Button(mainframe, text="Login", command=login).grid(column=4,row=8,sticky=N)
+    ttk.Button(mainframe, text="Login", command=login).grid(row=8,sticky=N, columnspan=5)
 
     for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
 
-    account_entry.focus()
+    account_text.focus()
 
     root.mainloop()
     
