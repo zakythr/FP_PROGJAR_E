@@ -15,12 +15,14 @@ def login():
     except Exception as e:
         ttk.Label(mainframe, text="Login gagal, silahkan cek email dan password").grid(column=4,row=9,sticky=W)
         
+        
 def setup(event):
     webbrowser.open_new(r"https://www.google.com/settings/security/lesssecureapps")
    
     
 root = Tk()
 root.title("POST - driven app")
+root.iconbitmap(r'source\lib\app.ico')
 
 mainframe = ttk.Frame(root, padding="3 3 12 12")
 mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
