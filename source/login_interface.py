@@ -22,7 +22,7 @@ def setup(event):
     
 root = Tk()
 root.title("POST - driven app")
-root.iconbitmap(r'source\lib\app.ico')
+root.iconbitmap(r'lib\app.ico')
 
 mainframe = ttk.Frame(root, padding="3 3 12 12")
 mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
