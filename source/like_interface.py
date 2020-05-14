@@ -24,7 +24,7 @@ mainframe.columnconfigure(0, weight=1)
 mainframe.rowconfigure(0, weight=1)
 jumlahLike = 25
 
-logo = PhotoImage(file="like.png")
+logo = PhotoImage(file="Users/User/img/like.png")
 photoimage = logo.subsample(2, 2)
 
 w1 = Label(mainframe, image=photoimage).grid(row=0, column=0, columnspan=10, rowspan=3, sticky=W+E+N+S, padx=5, pady=5)
