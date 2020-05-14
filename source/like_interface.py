@@ -5,9 +5,16 @@ def like():
     global jumlahLike
     jumlahLike += 1
     tambah = jumlahLike
-    button = Button(mainframe, text="Liked", bg='green', width=9)
+    button = Button(mainframe, text="Liked", bg='green', width=9, command=unlike)
     button.grid(row=3, column=0)
     ttk.Label(mainframe, text="%d Liked" % tambah).grid(row=3, column=4)
+
+def unlike():
+    global jumlahLike
+    jumlahLike -= 1
+    kurang = jumlahLike
+    ttk.Button(mainframe, text="Like", command=like).grid(row=3, column=0)
+    ttk.Label(mainframe, text="%d Liked" % kurang).grid(row=3, column=4)
 
 root = Tk()
 root.title("POST - driven app")
