@@ -5,15 +5,15 @@ import webbrowser
 
 def login():
     try:
-        sender = account.get()
+        akun = account.get()
         pswrd = password.get()
         mail = imaplib.IMAP4_SSL ("imap.gmail.com")
-        mail.login(sender, pswrd)
+        mail.login(akun, pswrd)
         
         ttk.Label(mainframe, text="Login Succesfull").grid(column=4,row=9,sticky=W)
 
     except Exception as e:
-        ttk.Label(mainframe, text=str(e)).grid(column=4,row=9,sticky=W)
+        ttk.Label(mainframe, text="Login gagal, silahkan cek email dan password").grid(column=4,row=9,sticky=W)
         
 def setup(event):
     webbrowser.open_new(r"https://www.google.com/settings/security/lesssecureapps")
@@ -35,7 +35,7 @@ a.grid(columnspan=2,column=3, row=0, sticky=N)
 a.bind("<Button-1>", setup)
 
 
-ttk.Label(mainframe, text="Email Account: ").grid(column=0, row=1, sticky=W)
+ttk.Label(mainframe, text="Email: ").grid(column=0, row=1, sticky=W)
 account_entry = ttk.Entry(mainframe, width=30, textvariable=account)
 account_entry.grid(column=4, row=1, sticky=(W, E))
 
