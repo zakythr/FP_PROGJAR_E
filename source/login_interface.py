@@ -4,8 +4,13 @@ import smtplib
 import imaplib
 import webbrowser
 import config
+from tkinter import messagebox
 
 def runapp():
+    
+    def on_closing():
+            if messagebox.askokcancel("Keluar", "Apakah anda ingin keluar?"):
+                root.destroy()
     def login():
         try:
             akun = account.get()
@@ -17,7 +22,7 @@ def runapp():
             subject = "Login Berhasil"
             msg = "Selamat , anda berhasil login aplikasi POST-driven app, selamat menikmati"
             send_mail(subject,msg)
-            
+            root.destroy()
         except Exception as e:
             ttk.Label(mainframe, text="Login gagal, silahkan cek email dan password").grid(columnspan=5,row=9,sticky=N)
 
@@ -70,6 +75,6 @@ def runapp():
     for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
 
     account_text.focus()
-
+    root.protocol("WM_DELETE_WINDOW", on_closing)
     root.mainloop()
     
