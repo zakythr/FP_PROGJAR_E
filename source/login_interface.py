@@ -4,6 +4,7 @@ import smtplib
 import imaplib
 import webbrowser
 import config
+import mainpage
 from tkinter import messagebox
 
 def runapp():
@@ -22,7 +23,8 @@ def runapp():
             subject = "Login Berhasil"
             msg = "Selamat , anda berhasil login aplikasi POST-driven app, selamat menikmati"
             send_mail(subject,msg)
-            root.destroy()
+            root.withdraw()
+            mainpage.runapp()
         except Exception as e:
             ttk.Label(mainframe, text="Login gagal, silahkan cek email dan password").grid(columnspan=5,row=9,sticky=N)
 
