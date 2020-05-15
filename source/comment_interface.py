@@ -53,7 +53,7 @@ mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
 mainframe.columnconfigure(0, weight=1)
 mainframe.rowconfigure(0, weight=1)
 
-logo = PhotoImage(file="Users/User/img/like.png")
+logo = PhotoImage(file="../img/like.png")
 photoimage = logo.subsample(2, 2)
 
 a = Label(master=mainframe, image=photoimage)
