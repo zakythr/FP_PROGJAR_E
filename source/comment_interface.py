@@ -13,7 +13,7 @@ def click():
     d = Label(master=mainframe, text="               ")
     d.grid(column=2, row=3, sticky=EW, padx=5, pady=5)
 
-    e = Label(master=mainframe, text="               ")
+    e = Label(master=mainframe, text="10 Comments")
     e.grid(column=3, row=3, sticky=EW, padx=5, pady=5)
 
     f = Label(master=mainframe, text="25 Likes")
@@ -37,7 +37,7 @@ def unclick():
     d = Label(master=mainframe, text="               ")
     d.grid(column=2, row=3, sticky=EW, padx=5, pady=5)
 
-    e = Label(master=mainframe, text="               ")
+    e = Label(master=mainframe, text="10 Comments")
     e.grid(column=3, row=3, sticky=EW, padx=5, pady=5)
 
     f = Label(master=mainframe, text="25 Likes")
@@ -53,7 +53,7 @@ def comment():
     entry.delete(0, END)
     entry.grid_remove()
     send_b.grid_remove()
-    entry_str = Label(text=entryString)
+    entry_str = Label(text="nama pengguna : " + entryString)
     entry_str.grid(column=0, row=i, sticky=W, padx=7, pady=5)
     i += 1
     entry.grid(column=0, row=i, sticky=W, padx=7, pady=5)
