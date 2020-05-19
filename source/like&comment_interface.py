@@ -69,7 +69,7 @@ def comment():
 
 def runLikeComment():
     # ***** POST ******
-    logo = PhotoImage(file='yuki.png')
+    logo = PhotoImage(file='../img/like.png')
     photoimage = logo.subsample(2, 2)
 
     a = Label(frame1, image=photoimage)
