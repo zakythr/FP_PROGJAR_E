@@ -15,6 +15,8 @@ frame2.pack(side=TOP, fill=X)
 likebar = Frame(frame2)
 likebar.grid(column=0, row=1)
 
+commentbar = Frame(frame2)
+
 def like():
     global btn1_like, label1_like, likeCount
     likeCount = likeCounter(0)
@@ -28,6 +30,42 @@ def unlike():
     likeCount = likeCounter(1)
     btn1_like.grid_remove()
     label1_like.grid_remove()
+    
+def click():
+    global btn2_comment, commentbar, likebar, entry, send_btn
+    btn2_comment = ttk.Button(likebar, width=9, text='Comment', command=unclick)
+    btn2_comment.grid(column=1, row=1, sticky=E,padx=5,pady=5)
+    
+    commentbar.grid(column=0,row=2)
+    entry = ttk.Entry(commentbar, width=43)
+    send_btn = Button(commentbar, text="Send", width=8, command=comment)
+    entry.grid(column=0, row=i, sticky=W, padx=5, pady=5)
+    send_btn.grid(column=1, row=i, sticky=E, padx=5, pady=5)
+
+def unclick():
+    btn2_comment.grid_remove()
+    entry.grid_remove()
+    send_btn.grid_remove()
+    commentbar.grid_remove()
+    
+def comment():
+    global i, commentCount, label2_comment
+    if not entry.get():
+        print('Input komentarmu')
+    else:
+        entryString = entry.get()
+        entry.delete(0, END)
+        commentCount = commentCounter() # add comment number
+        label2_comment = Label(likebar, text='%d Comment' %commentCount)
+        label2_comment.grid(column=4, row=1, sticky=EW,padx=5,pady=5)
+        
+        entry_str = Label(commentbar, text="nama pengguna : " + entryString)
+        entry_str.grid(column=0, row=i, sticky=W, padx=5, pady=5)
+        entry.grid_remove()
+        send_btn.grid_remove()
+        i += 1 # add row of comment entry
+        entry.grid(column=0, row=i, sticky=W, padx=5, pady=5)
+        send_btn.grid(column=1, row=i, sticky=E, padx=5, pady=5)
 
 def runLikeComment():
     # ***** POST ******
