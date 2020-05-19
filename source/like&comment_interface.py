@@ -3,6 +3,9 @@ from tkinter import ttk
 
 i = 2
 
+likeCount = 0
+commentCount = 0
+
 root = Tk()
 root.title(string='POST - driven app')
 
@@ -15,7 +18,18 @@ frame2.pack(side=TOP, fill=X)
 likebar = Frame(frame2)
 likebar.grid(column=0, row=1)
 
-commentbar = Frame(frame2)
+def likeCounter(x):
+    global likeCount
+    if x == 0: # add like
+        likeCount += 1
+    else: # subtract like
+        likeCount -= 1
+    return likeCount
+
+def commentCounter():
+    global commentCount
+    commentCount += 1
+    return commentCount
 
 def like():
     global btn1_like, label1_like, likeCount
