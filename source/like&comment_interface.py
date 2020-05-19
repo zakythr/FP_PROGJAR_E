@@ -12,6 +12,9 @@ frame1.pack(side=TOP,fill=X)
 frame2 = Frame(root)
 frame2.pack(side=TOP, fill=X)
 
+likebar = Frame(frame2)
+likebar.grid(column=0, row=1)
+
 def like():
     global btn1_like, label1_like, likeCount
     likeCount = likeCounter(0)
