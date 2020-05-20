@@ -6,7 +6,6 @@ import webbrowser
 import config
 import mainpage
 from tkinter import messagebox
-
 def runapp():
     
     def on_closing():
@@ -18,13 +17,12 @@ def runapp():
             pswrd = password.get()
             mail = imaplib.IMAP4_SSL ("imap.gmail.com")
             mail.login(akun, pswrd)
-            
             ttk.Label(mainframe, text="Login Succesfull").grid(row=9,sticky=N, columnspan=5)
             subject = "Login Berhasil"
             msg = "Selamat , anda berhasil login aplikasi POST-driven app, selamat menikmati"
             send_mail(subject,msg)
             root.withdraw()
-            mainpage.runapp()
+            mainpage.runapp(akun)
         except Exception as e:
             ttk.Label(mainframe, text="Login gagal, silahkan cek email dan password").grid(columnspan=5,row=9,sticky=N)
 
