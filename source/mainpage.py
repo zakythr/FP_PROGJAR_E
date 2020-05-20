@@ -1,8 +1,9 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+import broadcast_interface as p
 
-def runapp():
+def runapp(namaemail):
     
     class windowclass():
         def __init__(self, master):
@@ -27,13 +28,24 @@ def runapp():
         def close_windows(self):
             self.master.destroy()
 
+    class PostBttn():
+        def __init__(self, master):
+            self.master = master
+            self.btn = ttk.Button(master, text="PostStatus", command=self.command)
+            self.btn.pack()
+
+        def command(self):
+            self.nama = namaemail
+            p.runapp(self.nama)
+
     def on_closing():
         if messagebox.askokcancel("Keluar", "Apakah anda ingin keluar?"):
             root.destroy()
-            
+
     root = Tk()
     root.title("window")
     root.geometry("350x350")
     cls = windowclass(root)
+    ps = PostBttn(root)
     root.protocol("WM_DELETE_WINDOW", on_closing)
     root.mainloop()
