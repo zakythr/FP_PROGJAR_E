@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 import broadcast_interface as p
+import like_and_comment_interface as li
 
 def runapp(namaemail):
     
@@ -38,6 +39,15 @@ def runapp(namaemail):
             self.nama = namaemail
             p.runapp(self.nama)
 
+    class TimelineBttn():
+        def __init__(self, master):
+            self.master = master
+            self.btn = ttk.Button(master, text="Timeline", command=self.command)
+            self.btn.pack()
+
+        def command(self):
+            li.runapp()
+            
     def on_closing():
         if messagebox.askokcancel("Keluar", "Apakah anda ingin keluar?"):
             root.destroy()
@@ -47,5 +57,6 @@ def runapp(namaemail):
     root.geometry("350x350")
     cls = windowclass(root)
     ps = PostBttn(root)
+    TimelineBttn(root)
     root.protocol("WM_DELETE_WINDOW", on_closing)
     root.mainloop()
