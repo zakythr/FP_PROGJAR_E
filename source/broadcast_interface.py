@@ -1,4 +1,4 @@
-from tkinter import Frame, Tk, BOTH, Text, Menu, END, filedialog, Button, Label, LEFT, RIGHT, N, filedialog, StringVar
+from tkinter import Frame, Tk, BOTH, Text, Menu, END, filedialog, Button, Label, LEFT, RIGHT, N
 from tkinter import ttk
 import os.path
 import config
@@ -16,23 +16,28 @@ class membuatStatus(Frame):
         self.status()
         self.kirim()
         self.tombol()
+
     def kirim(self):
         try:
-            broadcast = tulisan.get()
+            broadcast = masukkanKeWindow.get("1.0", "end")
             f.write("status/1.txt", broadcast)
             ttk.Label(mainframe, text="Status anda terkirim!").grid(row=9,sticky=N, columnspan=5)
         except:
             print("1")
+
     def status(self):
         teksField = Frame(self)
         teksField.pack(fill=BOTH, expand=True)
+
         self.teks = Label(teksField, text="Status :", width=6)
         self.teks.pack(side=LEFT, anchor=N, padx=5, pady=5)
-        self.masukkanKeWindow = Text(teksField, textvariable=tulisan)
+
+        self.masukkanKeWindow = Text(teksField)
         self.masukkanKeWindow.pack(fill=BOTH, pady=5, padx=5, expand=True)
     def tombol(self):
-        tombolTutup = Button(self, text="Kirim", command=self.kirim)
+        tombolTutup = Button(self, text="Kirim", command=kirim)
         tombolTutup.pack(side=RIGHT, padx=5, pady=5)
+
         tombolOke = Button(self, text="Cancel", command=self.quit)
         tombolOke.pack(side=RIGHT)
 if __name__ == '__main__':
