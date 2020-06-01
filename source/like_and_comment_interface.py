@@ -81,7 +81,7 @@ def runapp():
             send_btn.grid(column=1, row=i, sticky=E, padx=5, pady=5)
 
     # ***** POST ******
-    logo = PhotoImage(file='yuki.png')
+    logo = PhotoImage(file='../img/like.png')
     photoimage = logo.subsample(2, 2)
     a = Label(frame1, image=photoimage)
     a.grid(column=0, row=0, sticky=NSEW, padx=5, pady=5, columnspan=4)
