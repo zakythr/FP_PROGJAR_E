@@ -4,6 +4,7 @@ from tkinter import messagebox
 import broadcast_interface as p
 import login_interface as login
 import like_and_comment_interface as li
+import profile_interface as profile
 
 def runapp(namaemail):
     
@@ -15,10 +16,7 @@ def runapp(namaemail):
 
         def command(self):
             self.master.withdraw()
-            toplevel = Toplevel(self.master)
-            toplevel.geometry("350x350")
-            app = Demo2(toplevel)
-            
+            profile.runprofile()
 
     class Demo2:
         def __init__(self, master):

@@ -11,6 +11,7 @@ nama_akun = ""
 
 def getNamaAkun():
     global nama_akun
+    print(nama_akun)
     return nama_akun
 
 def runapp():
