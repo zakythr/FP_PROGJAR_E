@@ -16,10 +16,17 @@ class membuatStatus(Frame):
         self.status()
         self.kirim()
         self.tombol()
+    
+    def tombol(self):
+        tombolTutup = Button(self, text="Kirim", command=self.kirim)
+        tombolTutup.pack(side=RIGHT, padx=5, pady=5)
+
+        tombolOke = Button(self, text="Cancel", command=self.quit)
+        tombolOke.pack(side=RIGHT)
 
     def kirim(self):
         try:
-            broadcast = masukkanKeWindow.get("1.0", "end")
+            broadcast = self.masukkanKeWindow.get("1.0", "end")
             f.write("status/1.txt", broadcast)
             ttk.Label(mainframe, text="Status anda terkirim!").grid(row=9,sticky=N, columnspan=5)
         except:
@@ -34,12 +41,7 @@ class membuatStatus(Frame):
 
         self.masukkanKeWindow = Text(teksField)
         self.masukkanKeWindow.pack(fill=BOTH, pady=5, padx=5, expand=True)
-    def tombol(self):
-        tombolTutup = Button(self, text="Kirim", command=kirim)
-        tombolTutup.pack(side=RIGHT, padx=5, pady=5)
-
-        tombolOke = Button(self, text="Cancel", command=self.quit)
-        tombolOke.pack(side=RIGHT)
+    
 if __name__ == '__main__':
     root = Tk()
     root.geometry("300x450")
