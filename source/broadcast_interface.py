@@ -1,10 +1,11 @@
-from tkinter import Frame, Tk, BOTH, Text, Menu, END, filedialog, Button, Label, LEFT, RIGHT, N
+from tkinter import Frame, Tk, BOTH, Text, Menu, END, filedialog, Button, Label, LEFT, RIGHT, N, filedialog, StringVar
 from tkinter import ttk
+import os.path
+import config
 
 class membuatStatus(Frame):
     def __init__(self, parent):
         Frame.__init__(self, parent)
-
         self.window = parent
         self.initUI()
 
@@ -13,25 +14,27 @@ class membuatStatus(Frame):
         self.pack(fill=BOTH, expand=True)
 
         self.status()
+        self.kirim()
         self.tombol()
-    
+    def kirim(self):
+        try:
+            broadcast = tulisan.get()
+            f.write("status/1.txt", broadcast)
+            ttk.Label(mainframe, text="Status anda terkirim!").grid(row=9,sticky=N, columnspan=5)
+        except:
+            print("1")
     def status(self):
         teksField = Frame(self)
         teksField.pack(fill=BOTH, expand=True)
-
         self.teks = Label(teksField, text="Status :", width=6)
         self.teks.pack(side=LEFT, anchor=N, padx=5, pady=5)
-
-        self.masukkanKeWindow = Text(teksField)
+        self.masukkanKeWindow = Text(teksField, textvariable=tulisan)
         self.masukkanKeWindow.pack(fill=BOTH, pady=5, padx=5, expand=True)
-
     def tombol(self):
-        tombolTutup = Button(self, text="Kirim", command=self.quit)
+        tombolTutup = Button(self, text="Kirim", command=self.kirim)
         tombolTutup.pack(side=RIGHT, padx=5, pady=5)
-
         tombolOke = Button(self, text="Cancel", command=self.quit)
         tombolOke.pack(side=RIGHT)
-
 if __name__ == '__main__':
     root = Tk()
     root.geometry("300x450")
