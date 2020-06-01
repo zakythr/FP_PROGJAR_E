@@ -7,10 +7,11 @@ import config
 import mainpage
 from tkinter import messagebox
 
-akun = ""
+nama_akun = ""
 
-def getAkun():
-    return akun
+def getNamaAkun():
+    global nama_akun
+    return nama_akun
 
 def runapp():
     
@@ -19,8 +20,9 @@ def runapp():
                 root.destroy()
     def login():
         try:
-            global akun
+            global nama_akun
             akun = account.get()
+            nama_akun = akun
             pswrd = password.get()
             mail = imaplib.IMAP4_SSL ("imap.gmail.com")
             mail.login(akun, pswrd)
