@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import login_interface as login
 
 i = 2
 
@@ -72,7 +73,7 @@ def runapp():
             commentCount = commentCounter() # add comment number
             label2_comment = Label(likebar, text='%d Comment' %commentCount)
             label2_comment.grid(column=4, row=1, sticky=EW,padx=5,pady=5)
-            entry_str = Label(commentbar, text="nama pengguna : " + entryString)
+            entry_str = Label(commentbar, text=login.getNamaAkun() + " : " + entryString)
             entry_str.grid(column=0, row=i, sticky=W, padx=5, pady=5)
             entry.grid_remove()
             send_btn.grid_remove()
