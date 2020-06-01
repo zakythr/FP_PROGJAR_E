@@ -3,6 +3,8 @@ from tkinter import ttk
 import login_interface as login
 
 
+#nama_akun = login.getNamaAkun()
+
 def runprofile():
     
     def on_closing():
@@ -31,5 +33,5 @@ def runprofile():
     root.protocol("WM_DELETE_WINDOW", on_closing)
     root.mainloop()
     
-runprofile()
-    
+
+        

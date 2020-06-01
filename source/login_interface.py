@@ -9,10 +9,6 @@ from tkinter import messagebox
 
 nama_akun = ""
 
-def getNamaAkun():
-    global nama_akun
-    print(nama_akun)
-    return nama_akun
 
 def runapp():
     
@@ -88,3 +84,7 @@ def runapp():
     root.protocol("WM_DELETE_WINDOW", on_closing)
     root.mainloop()
     
+def getNamaAkun():
+    global nama_akun
+    print(nama_akun)
+    return nama_akun

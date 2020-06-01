@@ -15,7 +15,6 @@ def runapp(namaemail):
             self.btn.pack()
 
         def command(self):
-            self.master.withdraw()
             profile.runprofile()
 
     class Demo2:
@@ -54,7 +53,7 @@ def runapp(namaemail):
     root = Tk()
     root.title("window")
     root.geometry("350x350")
-    cls = windowclass(root)
+    wc = windowclass(root)
     ps = PostBttn(root)
     TimelineBttn(root)
     root.protocol("WM_DELETE_WINDOW", on_closing)
