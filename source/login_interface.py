@@ -6,6 +6,12 @@ import webbrowser
 import config
 import mainpage
 from tkinter import messagebox
+
+akun = ""
+
+def getAkun():
+    return akun
+
 def runapp():
     
     def on_closing():
@@ -13,6 +19,7 @@ def runapp():
                 root.destroy()
     def login():
         try:
+            global akun
             akun = account.get()
             pswrd = password.get()
             mail = imaplib.IMAP4_SSL ("imap.gmail.com")
