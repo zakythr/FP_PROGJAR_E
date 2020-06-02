@@ -2,6 +2,7 @@ from tkinter import Frame, Tk, BOTH, Text, Menu, END, filedialog, Button, Label,
 from tkinter import ttk
 import os.path
 import config
+import os
 
 class membuatStatus(Frame):
     def __init__(self, parent):
@@ -27,7 +28,8 @@ class membuatStatus(Frame):
     def kirim(self):
         try:
             broadcast = self.masukkanKeWindow.get("1.0", "end")
-            f.write("status/1.txt", broadcast)
+            f = open("status/"+ len(filelist)+".txt", "w")
+            f.write(broadcast)
             ttk.Label(mainframe, text="Status anda terkirim!").grid(row=9,sticky=N, columnspan=5)
         except:
             print("1")
