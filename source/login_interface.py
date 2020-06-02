@@ -12,9 +12,6 @@ nama_akun = ""
 
 def runapp():
     
-    def on_closing():
-            if messagebox.askokcancel("Keluar", "Apakah anda ingin keluar?"):
-                root.destroy()
     def login():
         try:
             global nama_akun
@@ -81,7 +78,6 @@ def runapp():
     for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
 
     account_text.focus()
-    root.protocol("WM_DELETE_WINDOW", on_closing)
     root.mainloop()
     
 def getNamaAkun():
