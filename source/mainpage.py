@@ -7,6 +7,7 @@ import like_and_comment_interface as li
 import profile_interface as profile
 
 def runapp(namaemail):
+    print(namaemail)
     
     class windowclass():
         def __init__(self, master):
@@ -15,7 +16,8 @@ def runapp(namaemail):
             self.btn.pack()
 
         def command(self):
-            profile.runprofile()
+            self.nama = namaemail
+            profile.runprofile(self.nama)
 
     class Demo2:
         def __init__(self, master):
