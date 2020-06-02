@@ -37,7 +37,7 @@ def runapp(namaemail):
 
         def command(self):
             self.nama = namaemail
-            p.runapp(self.nama)
+            p.runapp()
 
     class TimelineBttn():
         def __init__(self, master):
