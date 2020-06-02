@@ -28,7 +28,10 @@ class membuatStatus(Frame):
     def kirim(self):
         try:
             broadcast = self.masukkanKeWindow.get("1.0", "end")
-            f = open("status/1.txt", "w")
+            file_count = os.listdir("status")
+            count = 1 + len(file_count)
+            print(count)
+            f = open("status/2.txt", "w")
             f.write(broadcast)
             ttk.Label(mainframe, text="Status anda terkirim!").grid(row=9,sticky=N, columnspan=5)
         except:
