@@ -57,8 +57,7 @@ def runapp():
             self.masukkanKeWindow = Text(teksField)
             self.masukkanKeWindow.pack(fill=BOTH, pady=5, padx=5, expand=True)
         
-    if __name__ == '__main__':
-        root = Tk()
-        root.geometry("300x450")
-        app = membuatStatus(root)
-        root.mainloop()
+    root = Tk()
+    root.geometry("300x450")
+    app = membuatStatus(root)
+    root.mainloop()
